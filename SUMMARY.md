@@ -21,8 +21,11 @@
 * [5.3 Date类型](docs/ch5/date.md)
 * [5.4 RegExp类型](docs/ch5/regexp.md)
    * [5.4.1 RegExp实例属性]()
-* [5.5 Function类型]()
+* [5.5 Function类型](docs/ch5/function.md)
 * [5.6 基本包装类型]()
+    * [5.6.1 boolean](docs/ch5/boolean.md) 
+    * [5.6.1 number](docs/ch5/number.md)
+    * [5.6.1 string](docs/ch5/string.md) 
 * [5.7 单体内置对象]()
 * [5.8 小结](docs/ch5/summary.md)
 
