@@ -16,13 +16,13 @@
 
 
 ## ch5-引用类型   
-* 5.1 Object类型
-* 5.2 Array类型
-* 5.3 Date类型
-* 5.4 RegExp类型
-   * 5.4.1 RegExp实例属性
-* 5.5 Function类型
-* 5.6 基本包装类型
-* 5.7 单体内置对象
-* [5.8 小结](all.md)
+* [5.1 Object类型](docs/ch5/object.md)
+* [5.2 Array类型]()
+* [5.3 Date类型]()
+* [5.4 RegExp类型]()
+   * [5.4.1 RegExp实例属性]()
+* [5.5 Function类型]()
+* [5.6 基本包装类型]()
+* [5.7 单体内置对象]()
+* [5.8 小结](docs/ch5/summary.md)
 
