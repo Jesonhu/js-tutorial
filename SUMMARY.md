@@ -21,7 +21,7 @@
 * [5.3 Date类型](docs/ch5/date.md)
 * [5.4 RegExp类型](docs/ch5/regexp.md)
    * [5.4.1 字符串使用Rexpex](docs/ch5/regexpString.md)
-   * [5.4.2 RegExp实例属性](docs)
+   * [5.4.2 RegExp实例属性](docs/ch5/regexpInstance.md)
 * [5.5 Function类型](docs/ch5/function.md)
 * [5.6 基本包装类型](docs/ch5)
     * [5.6.1 boolean](docs/ch5/boolean.md) 
