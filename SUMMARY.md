@@ -1,16 +1,27 @@
 # Summary
 
-* [Introduction](README.md)
+## ch3 基本概念
 * [3.1 语法(syntax grammer)](docs/ch3/syntax.md)
 * 3.2 关键字和保留字
 * 3.3 变量
 * 3.4 数据类型
 * 3.5 操作符
    * [3.5.1 一元操作符](351_yi_yuan_cao_zuo_fu.md)
-       * ss
+       * [4级目录]()
 * 3.6 语句
 * 3.7 函数
 * 3.8 小结
 * [Defining Methods](methods.md)
    * 333
+   * 
+  
 
+## ch4 变量、作用域、内存问题
+
+
+## ch5 引用类型
+
+
+## ch6 面向对象的程序设计
+
+## ch7 函数
