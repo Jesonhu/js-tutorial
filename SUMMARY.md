@@ -1,4 +1,4 @@
-# Summary
+# 目录
 
 ## ch3 基本概念
 * [3.1 语法(syntax grammer)](docs/ch3/syntax.md)
@@ -24,4 +24,4 @@
 
 ## ch6 面向对象的程序设计
 
-## ch7 函数
+## ch7 函数表达式
