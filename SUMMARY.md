@@ -19,7 +19,7 @@
 * [5.1 Object类型](docs/ch5/object.md)
 * [5.2 Array类型](docs/ch5/array.md)
 * [5.3 Date类型](docs/ch5/date.md)
-* [5.4 RegExp类型](docs/ch5/regexp.md)
+* [5.4 RegExp类型](docs/ch5/regexp/README.md)
    * [5.4.1 字符串使用Rexpex](docs/ch5/regexpString.md)
    * [5.4.2 RegExp实例属性](docs/ch5/regexpInstance.md)
 * [5.5 Function类型](docs/ch5/function.md)
