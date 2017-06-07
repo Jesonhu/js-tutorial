@@ -22,6 +22,7 @@
 * [5.4 RegExp类型](docs/ch5/regexp/README.md)
    * [5.4.1 字符串使用Rexpex](docs/ch5/regexp/string.md)
    * [5.4.2 RegExp实例属性](docs/ch5/regexp/regexp.md)
+   * [5.4.3 正则案例](docs/ch5/regexp/demo.md)
 * [5.5 Function类型](docs/ch5/function.md)
 * [5.6 基本包装类型]()
     * [5.6.1 boolean](docs/ch5/boolean.md) 
