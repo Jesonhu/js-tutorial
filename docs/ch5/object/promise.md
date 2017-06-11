@@ -25,7 +25,7 @@ ES6 规定，`Promise`对象是一个构造函数，用来生成`Promise`实例�
 ```js
 var promise = new Promise(function(resolve, reject){
     // 异步操作
-    
+
     if (/* 异步操作成功 */){
       resolve(value);
     } else {
@@ -37,8 +37,6 @@ var promise = new Promise(function(resolve, reject){
 `Promise`构造函数接受一个函数作为参数，该函数的两个参数分别是`resolve`和`reject`。它们是两个函数，由 JavaScript 引擎提供，不用自己部署。
 
 `resolve`函数的作用是，将`Promise`对象的状态从“未完成”变为“成功”（即从 Pending 变为 Resolved），在异步操作成功时调用，并将异步操作的结果，作为参数传递出去；`reject`函数的作用是，将`Promise`对象的状态从“未完成”变为“失败”（即从 Pending 变为 Rejected），在异步操作失败时调用，并将异步操作报出的错误，作为参数传递出去。
-
-
 
 `Promise`实例生成以后，可以用`then`方法分别指定`Resolved`状态和`Reject`状态的回调函数。
 
@@ -102,6 +100,44 @@ function loadImageAsync(url) {
     image.src = url;
   });
 }
+```
+
+---
+
+Promise对象实现 Ajax
+
+```js
+var getJSON = function(url) {
+
+  var promise = new Promise(function(resolve, reject){
+    var client = new XMLHttpRequest();
+    client.open("GET", url);
+    client.onreadystatechange = handler; // 指定一个回调函数
+    client.responseType = "json";
+    client.setRequestHeader("Accept", "application/json");
+    client.send();
+    
+    // 当 onreadystatechange 事件触发时调用
+    function handler() { 
+      if (this.readyState !== 4) {
+        return;
+      }
+      if (this.status === 200) {
+        resolve(this.response); // 成功方法
+      } else {
+        reject(new Error(this.statusText)); // 失败方法
+      }
+    };
+  });
+
+  return promise;
+};
+
+getJSON("/posts.json").then(function(json) {
+  console.log('Contents: ' + json); // 获取到resolve()传递的实参 this.response
+}, function(error) {
+  console.error('出错了', error); // 获取到reject()传递的实参 new Error(this.statusText) 
+});
 ```
 
 
