@@ -19,6 +19,7 @@
 ## ch5-引用类型
 
 * [5.1 Object类型](docs/ch5/object.md)
+  * [Promise](docs/ch5/object/promise.md)
 * [5.2 Array类型](docs/ch5/array.md)
 * [5.3 Date类型](docs/ch5/date.md)
 * [5.4 RegExp类型](docs/ch5/regexp/README.md)
@@ -30,7 +31,7 @@
   * [5.6.1 boolean](docs/ch5/boolean.md)
   * [5.6.1 number](docs/ch5/number.md)
   * [5.6.1 string](docs/ch5/string.md)
-* 5.7 单体内置对象
+* [5.7 单体内置对象](docs/ch5/57-dan-ti-nei-zhi-dui-xiang.md)
 * [5.8 小结](docs/ch5/summary.md)
 
 ## ch6-模块概念
@@ -39,6 +40,4 @@
 * [6.2 严格模式](docs/ch6/2.md)
 * [6.3 模块命令](docs/ch6/3.md)
 * [6.4 模块整体加载](docs/ch6/4.md)
-
-
 
