@@ -116,7 +116,7 @@ var getJSON = function(url) {
     client.responseType = "json";
     client.setRequestHeader("Accept", "application/json");
     client.send();
-    
+
     // 当 onreadystatechange 事件触发时调用
     function handler() { 
       if (this.readyState !== 4) {
@@ -138,6 +138,50 @@ getJSON("/posts.json").then(function(json) {
 }, function(error) {
   console.error('出错了', error); // 获取到reject()传递的实参 new Error(this.statusText) 
 });
+```
+
+`getJSON`是对 XMLHttpRequest 对象的封装，用于发出一个针对 JSON 数据的 HTTP 请求，并且返回一个
+
+`Promise`对象。需要注意的是，在`getJSON`内部，`resolve`函数和`reject`函数调用时，都带有参数。
+
+
+
+如果调用resolve函数和reject函数时带有参数，那么它们的参数会被传递给回调函数。
+
+reject函数的参数通常是Error对象的实例，表示抛出的错误；
+
+resolve函数的参数除了正常的值以外，还可能是另一个 Promise 实例，表示异步操作的结果有可能是一个值，
+
+也有可能是另一个异步操作，比如像下面这样
+
+```js
+var p1 = new Promise(function (resolve, reject) {
+  // ...
+});
+
+var p2 = new Promise(function (resolve, reject) {
+  // ...
+  resolve(p1);
+})
+```
+
+`p1`和`p2`都是Promise的实例，但是`p2`的`resolve`方法将`p1`作为参数，即一个异步操作的结果是返回另一个异步操作。
+
+注意，这时`p1`的状态就会传递给`p2`，也就是说，`p1`的状态决定了`p2`的状态。如果`p1`的状态是`Pending`，那么`p2`的回调函数就会等待`p1`的状态改变；如果`p1`的状态已经是`Resolved`或者`Rejected`，那么`p2`的回调函数将会立刻执行。
+
+```js
+var p1 = new Promise(function (resolve, reject) {
+  setTimeout(() => reject(new Error('fail')), 3000) // p1 异步的结果为失败
+})
+
+var p2 = new Promise(function (resolve, reject) {
+  setTimeout(() => resolve(p1), 1000) // 获取到失败 p2会执行失败的回调
+})
+
+p2
+  .then(result => console.log(result))
+  .catch(error => console.log(error))
+// Error: fail
 ```
 
 
