@@ -608,7 +608,7 @@ new Promise(resolve => resolve('foo'))
 
 如果参数是Promise实例，那么`Promise.resolve`将不做任何修改、原封不动地返回这个实例。
 
-**（2）参数是一个`thenable`对象**
+**（2）参数是一个**`thenable`**对象**
 
 `thenable`对象指的是具有`then`方法的对象，比如下面这个对象。
 
@@ -637,7 +637,7 @@ p1.then(function(value) {
 
 上面代码中，thenable对象的then方法执行后，对象p1的状态就变为resolved，从而立即执行最后那个then方法指定的回调函数，输出42。
 
-**（3）参数不是具有`then`方法的对象，或根本就不是对象**
+**（3）参数不是具有**`then`**方法的对象，或根本就不是对象**
 
 如果参数是一个原始值，或者是一个不具有`then`方法的对象，则`Promise.resolve`方法返回一个新的Promise对象，状态为`Resolved`。
 
@@ -689,4 +689,97 @@ console.log('one');
 上面代码中，setTimeout\(fn, 0\)在下一轮“事件循环”开始时执行，Promise.resolve\(\)在本轮“事件循环”结束时执行，console.log\('one'\)则是立即执行，因此最先输出。
 
 ---
+
+## 8 Promise.reject\(\)
+
+`Promise.reject(reason)`方法也会返回一个新的 Promise 实例，该实例的状态为`rejected`。
+
+```js
+var p = Promise.reject('出错了');
+// 等同于
+var p = new Promise((resolve, reject) => reject('出错了'))
+
+p.then(null, function (s) {
+  console.log(s)
+});
+// 出错了
+```
+
+上面代码生成一个Promise对象的实例`p`，状态为`rejected`，回调函数会立即执行。
+
+注意，`Promise.reject()`方法的参数，会原封不动地作为`reject`的理由，变成后续方法的参数。这一点与`Promise.resolve`方法不一致。
+
+```js
+const thenable = {
+  then(resolve, reject) {
+    reject('出错了');
+  }
+};
+
+Promise.reject(thenable)
+.catch(e => {
+  console.log(e === thenable)
+})
+// true
+```
+
+上面代码中，Promise.reject方法的参数是一个thenable对象，执行以后，后面catch方法的参数不是reject抛出的“出错了”这个字符串，而是thenable对象。
+
+---
+
+## 9 自定方法
+
+ES6的Promise API提供的方法不是很多，有些有用的方法可以自己部署。下面介绍如何部署两个不在ES6之中、但很有用的方法。
+
+#### done\(\)
+
+Promise对象的回调链，不管以then方法或catch方法结尾，要是最后一个方法抛出错误，都有可能无法捕捉到（因为Promise内部的错误不会冒泡到全局）。因此，我们可以提供一个done方法，总是处于回调链的尾端，保证抛出任何可能出现的错误。
+
+```js
+asyncFunc()
+  .then(f1)
+  .catch(r1)
+  .then(f2)
+  .done();
+```
+
+实现
+
+```js
+Promise.prototype.done = function (onFulfilled, onRejected) {
+  this.then(onFulfilled, onRejected)
+    .catch(function (reason) {
+      // 抛出一个全局错误
+      setTimeout(() => { throw reason }, 0);
+    });
+};
+```
+
+从上面代码可见，done方法的使用，可以像then方法那样用，提供Fulfilled和Rejected状态的回调函数，也可以不提供任何参数。但不管怎样，done都会捕捉到任何可能出现的错误，并向全局抛出。
+
+#### finally\(\)
+
+`finally`方法用于指定不管Promise对象最后状态如何，都会执行的操作。它与`done`方法的最大区别，它接受一个普通的回调函数作为参数，该函数不管怎样都必须执行。
+
+下面是一个例子，服务器使用Promise处理请求，然后使用`finally`方法关掉服务器。
+
+```js
+server.listen(0)
+  .then(function () {
+    // run test
+  })
+  .finally(server.stop);
+```
+
+```js
+Promise.prototype.finally = function (callback) {
+  let P = this.constructor;
+  return this.then(
+    value  => P.resolve(callback()).then(() => value),
+    reason => P.resolve(callback()).then(() => { throw reason })
+  );
+};
+```
+
+上面代码中，不管前面的Promise是fulfilled还是rejected，都会执行回调函数callback。
 
