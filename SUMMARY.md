@@ -1,7 +1,8 @@
-# 目录
+# Summary
 
 ## ch3-基本概念
 
+* [Introduction](README.md)
 * [3.1 语法\(syntax grammer\)](docs/ch3/syntax.md)
 * 3.2 关键字和保留字
 * 3.3 变量
@@ -25,11 +26,11 @@
   * [5.4.2 RegExp实例属性](docs/ch5/regexp/regexp.md)
   * [5.4.3 正则案例](docs/ch5/regexp/demo.md)
 * [5.5 Function类型](docs/ch5/function.md)
-* [5.6 基本包装类型]()
-  * [5.6.1 boolean](docs/ch5/boolean.md) 
+* 5.6 基本包装类型
+  * [5.6.1 boolean](docs/ch5/boolean.md)
   * [5.6.1 number](docs/ch5/number.md)
-  * [5.6.1 string](docs/ch5/string.md) 
-* [5.7 单体内置对象]()
+  * [5.6.1 string](docs/ch5/string.md)
+* 5.7 单体内置对象
 * [5.8 小结](docs/ch5/summary.md)
 
 ## ch6-模块概念
