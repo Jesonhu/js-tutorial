@@ -20,6 +20,7 @@
 
 * [5.1 Object类型](docs/ch5/object.md)
   * [Promise](docs/ch5/object/promise.md)
+    * [应用](docs/ch5/object/promise/ying-yong.md)
 * [5.2 Array类型](docs/ch5/array.md)
 * [5.3 Date类型](docs/ch5/date.md)
 * [5.4 RegExp类型](docs/ch5/regexp/README.md)
