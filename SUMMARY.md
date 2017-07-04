@@ -20,6 +20,7 @@
 
 * [touch](domshi-jian/touch.md)
   * [eg1](domshi-jian/touch/eg1.md)
+  * [eg2](domshi-jian/touch/eg2.md)
 
 ## ch5-引用类型
 
