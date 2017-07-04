@@ -1,4 +1,4 @@
-# 目录
+# Summary
 
 ## ch3-基本概念
 
@@ -15,6 +15,10 @@
 * 3.8 小结
 * [Defining Methods](methods.md)
   * 333
+
+## dom事件
+
+* touch
 
 ## ch5-引用类型
 
@@ -41,6 +45,4 @@
 * [6.2 严格模式](docs/ch6/2.md)
 * [6.3 模块命令](docs/ch6/3.md)
 * [6.4 模块整体加载](docs/ch6/4.md)
-
-
 
