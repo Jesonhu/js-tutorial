@@ -1,4 +1,9 @@
-# 目录
+# Summary
+
+## PART1--JS概述
+
+* ch1
+  * [在线贷款计算器](part1-jsgai-shu/zai-xian-dai-kuan-ji-suan-qi.md)
 
 ## ch3-基本概念
 
@@ -41,6 +46,4 @@
 * [6.2 严格模式](docs/ch6/2.md)
 * [6.3 模块命令](docs/ch6/3.md)
 * [6.4 模块整体加载](docs/ch6/4.md)
-
-
 
