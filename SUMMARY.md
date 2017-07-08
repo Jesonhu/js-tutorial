@@ -1,5 +1,10 @@
 # Summary
 
+## PART1--JS概述
+
+* ch1
+  * [在线贷款计算器](part1-jsgai-shu/zai-xian-dai-kuan-ji-suan-qi.md)
+
 ## ch3-基本概念
 
 * [Introduction](README.md)
@@ -15,12 +20,6 @@
 * 3.8 小结
 * [Defining Methods](methods.md)
   * 333
-
-## dom事件
-
-* [TouchEvent](domshi-jian/touch.md)
-  * [eg1](domshi-jian/touch/eg1.md)
-  * [eg2](domshi-jian/touch/eg2.md)
 
 ## ch5-引用类型
 
