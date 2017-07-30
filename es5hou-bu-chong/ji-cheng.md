@@ -109,8 +109,8 @@ if ( Object.getPrototypeOf(Dog) === Animale ) {
 
 ## 3 super\(\)必须 且必须用在constructor方法里面
 
-> super\(\)相当于 Parent.prototype.constructor.call\(this\) super虽然代表了父类的构造函数，但是返回的是子类的实例。即super内部的this指的是B
-
+> super\(\)相当于 Parent.prototype.constructor.call\(this\) super虽然代表了父类的构造函数，但是**返回的是子类的实例**。即super内部的this指的是B
+>
 > 第二种情况：super作为对象时，在普通方法中，指向父类的原型对象；在静态方法中，指向父类、
 
 ```js
