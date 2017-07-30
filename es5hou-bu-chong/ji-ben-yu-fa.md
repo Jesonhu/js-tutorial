@@ -84,3 +84,111 @@
 
 类相当于实例的原型，所有在类中定义的方法，都会被实例继承。如果在一个方法前，加上`static`关键字，就表示该方法不会被实例继承，而是直接通过类来调用，这就称为“静态方法”。（**构造函数自有的方法，例如A.sayName\(\)**）
 
+```js
+// Class中的静态方法
+        class Points {
+            static classMethod() {
+                return '这是静态方法'
+            }
+        }
+        // 子类可以继承父类的静态方法
+        class Son1 extends Points {}
+
+        console.log(Son1.classMethod()) // => '这是静态方法'
+
+        // 静态方法也可以从super对象上调用
+        class Son2 extends Points {
+            static sonClassMethod() {
+                return super.classMethod() + '通过super继承父方法'
+            }
+        }
+        console.log(Son2.sonClassMethod()) // => '这是静态方法通过super继承父方法'
+```
+
+---
+
+## 14 Class的静态属性和实例属性
+
+> es6 规定 Class内部只有静态方法，没有静态属性，因此只有下面写法正确
+
+```js
+class Dog {
+        }
+        Dog.leg = 4
+        console.log(Dog.leg) // => 4
+
+        // 下面写法都不对
+        // class Cat {
+        //     leg: 4
+        //     static sy: '喵喵'
+        // }
+```
+
+> 静态属性的提案
+
+1 类的实例属性
+
+```js
+// 类的实例属性可以用等式，写入类的定义之中
+        class Dog {
+            // myProp = 42;
+
+            constructor() {
+                return this.myProp // 42
+            }
+        }
+        let hsq = new Dog()
+        console.log(hsq) // Dog {}
+
+        // 之前的写法 constructor方法里面定义
+        // class Alsj extends Dog {
+        //     constructor() {
+        //         super()
+        //         this.state = {
+        //             count: 1
+        //         }
+        //     }
+        // }
+        // const alsj = new Alsj()
+        // console.log(alsj.state.count) // => 1
+
+        // 通过=改写 这个写法浏览器目前报错 SyntaxError: Unexpected token =
+        // class Alsj extends Dog {
+        //     state = {
+        //         count: 1
+        //     }
+        // }
+        // const alsj = new Alsj()
+        // console.log(alsj.state.count)
+
+        // 为提高可读性，在constructor里面定义的实例属性，新方法可以直接列出
+        class Alsj extends Dog {
+            // state // => 目前浏览器SyntaxError: Unexpected identifier
+            constructor() {
+                super()
+                this.state = {
+                    count: 1
+                }
+            }
+        }
+        const alsj = new Alsj()
+        console.log(alsj.state.count)
+```
+
+2 类的静态属性
+
+```js
+// 类的静态属性老方法
+        class Dog {}
+        Dog.leg = 4
+
+        // 新写法
+        class Cat {
+            static leg = 4 // 直接写浏览器报错
+        }
+        const cat = new Cat()
+        console.log(cat.leg)
+```
+
+
+
