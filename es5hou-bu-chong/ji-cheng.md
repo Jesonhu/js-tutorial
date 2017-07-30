@@ -111,5 +111,42 @@ if ( Object.getPrototypeOf(Dog) === Animale ) {
 
 > super\(\)相当于 Parent.prototype.constructor.call\(this\) super虽然代表了父类的构造函数，但是返回的是子类的实例。即super内部的this指的是B
 
+> 第二种情况：super作为对象时，在普通方法中，指向父类的原型对象；在静态方法中，指向父类、
+
+```js
+class Parent {
+            p() { return 2 }
+        }
+class Son extends Parent {
+    constructor() {
+        super()
+        console.log(super.p()) // => 2
+    }
+}
+let son = new Son()
+```
+
+```js
+// super指向父类的原型对象，所以定义在父类实例上的方法或属性，是无法通过super调用的。原型对象上的属性和方法可以获取到
+        class Parent {
+            constructor() {
+                this.p = 2
+            }
+            getName() { return '父类方法' }
+        }
+        Parent.prototype.x = 666 // 定义在Parent.prototype super.x可以取得
+
+        class Son extends Parent {
+            get m() {
+                return super.p
+            }
+        }
+        const son = new Son()
+        // p是父类Parent实例的属性，super.p就引用不到它
+        console.log(son.m) // => undefined
+        console.log(son.x) // => 666
+        console.log(son.getName()) // => '父类方法'
+```
+
 
 
