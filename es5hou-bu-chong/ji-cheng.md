@@ -193,9 +193,9 @@ son.myMethod(2) // => instance 2
 
 大多数浏览器的 ES5 实现之中，每一个对象都有`__proto__`属性，指向对应的构造函数的`prototype`属性。Class 作为构造函数的语法糖，同时有`prototype`属性和`__proto__`属性，因此同时存在两条继承链。
 
-> （1）子类的`__proto__`属性，表示构造函数的继承，总是指向父类。
-
-> （2）子类`prototype`属性的`__proto__`属性，表示方法的继承，总是指向父类的`prototype`属性。
+> （1）**子类的`__proto__`属性，表示构造函数的继承，总是指向父类。**
+>
+> （2）**子类`prototype`属性的`__proto__`属性，表示方法的继承，总是指向父类的`prototype`属性。**
 
 ```js
 class Parent {}
@@ -231,9 +231,11 @@ B.__proto__ = A
 
 > 这两条继承链，可以这样理解：
 >
->         作为一个对象，子类（B）的原型（\_\_proto\_\_属性）是父类（A）；
+> ```
+>     作为一个对象，子类（B）的原型（\_\_proto\_\_属性）是父类（A）；
 >
->         作为一个构造函数，子类（B）的原型（prototype属性）是父类的实例。
+>     作为一个构造函数，子类（B）的原型（prototype属性）是父类的实例。
+> ```
 
 ---
 
@@ -242,7 +244,7 @@ B.__proto__ = A
 ## extends的继承目标
 
 > extends关键字后面可以跟多种类型的值。只要是一个有prototype属性的函数，就能被B继承。由于函数都有prototype属性（除了Function.prototype函数），因此A可以是任意函数。
-
+>
 > 子类继承Object类
 
 ```js
@@ -272,6 +274,16 @@ console.log( A.prototype.__proto__ === Object.prototype ) // => true
 ```js
 class A extends null {}
 
+console.log( A.__proto__ === Function.prototype ) // => true
+console.log( A.prototype.__proto__ === undefined ) // => true
+
+class A extends null {
+    // 实际执行了这里的代码
+    constructor() {
+        return Object.create(null)
+    }
+}
+// A也是一个普通的函数，所以直接继承Function.prototype
 console.log( A.__proto__ === Function.prototype ) // => true
 console.log( A.prototype.__proto__ === undefined ) // => true
 ```
