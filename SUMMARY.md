@@ -45,7 +45,7 @@
 
 * es6类
   * [基本语法](es5hou-bu-chong/ji-ben-yu-fa.md)
-  * 继承
+  * [继承](es5hou-bu-chong/ji-cheng.md)
 
 ## ch6-模块概念
 
