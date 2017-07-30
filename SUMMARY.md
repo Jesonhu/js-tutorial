@@ -41,6 +41,12 @@
 * [5.7 单体内置对象](docs/ch5/57-dan-ti-nei-zhi-dui-xiang.md)
 * [5.8 小结](docs/ch5/summary.md)
 
+## es5后补充
+
+* es6类
+  * [基本语法](es5hou-bu-chong/ji-ben-yu-fa.md)
+  * 继承
+
 ## ch6-模块概念
 
 * [6.1 概述](docs/ch6/1.md)
