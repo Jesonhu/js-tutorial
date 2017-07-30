@@ -28,7 +28,7 @@
         // 实现方法3
         const cbar = Symbol('bar')
         const csnaf = Symbol('snaf')
-        
+
         export default class myClass {
             // 公有方法
             foo(baz) {
