@@ -196,5 +196,35 @@ class Dog {
 
 > es6引入new.target属性，返回new命令作用于的那个构造函数，不是通过new调用的返回undefined
 
+```js
+// 使用方式1
+        function Person(name) {
+            if ( new.target !== undefined ) {
+                this.name = name
+            } else {
+                throw new Error('实例化必须通过new生成')
+            }
+        }
+        const person1 = new Person('Jeson')
+        // const person2 = Person('Tom')
+        console.log(person1) // => Person {name: "Jeson"}
+        // console.log(person2) // => Uncaught Error: 实例化必须通过new生成
+
+        // 使用方式2
+        function People(name) {
+            if ( new.target === People) {
+                this.name = name
+            } else {
+                throw new Error('实例化必须通过new生成')
+            }
+        }
+        const people1 = new People('Jack')
+        // const people2 = People('sam')
+        console.log(people1) // => Person {name: "Jeson"}
+        // console.log(people2) // => Uncaught Error: 实例化必须通过new生成
+```
+
+> new.target返回当前的类，利用这个特点可以写出不能独立使用，必须继承后才能使用的类
+
 
 
