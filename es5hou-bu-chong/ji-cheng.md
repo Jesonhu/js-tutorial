@@ -99,5 +99,13 @@ class Animale {
 
 ## 2 Object.getPrototypeOf\(\) 方法可以在子类上获取父类
 
+```js
+class Animale {}
+class Dog extends Animale {}
+if ( Object.getPrototypeOf(Dog) === Animale ) {
+    console.log(`Dog继承自Animale`)
+}
+```
+
 
 
