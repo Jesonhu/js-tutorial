@@ -148,5 +148,36 @@ let son = new Son()
         console.log(son.getName()) // => '父类方法'
 ```
 
+> 如果super作为对象，在静态方法中。super指向父类。而不是父类的原型对象
+
+```js
+class Parent {
+// static静态方法即构造函数对象上面的方法Parent.myMethod
+    static myMethod(msg) {
+        console.log('static', msg)
+    }
+    
+    myMethod(msg) {
+        console.log('instance', msg)
+    }
+}
+
+class Son extends Parent {
+static myMethod(msg) {
+    super.myMethod(msg)
+}
+
+myMethod(msg) {
+    super.myMethod(msg)
+}
+}
+
+Son.myMethod(1) // => static 1
+const son = new Son()
+son.myMethod(2) // => instance 2
+```
+
+> super随执行环境的变化而变化
+
 
 
