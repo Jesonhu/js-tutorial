@@ -36,5 +36,21 @@
 
 > super关键字，用来表示父类的构造函数，用来新建父类的this对象， 子类必须在constructor方法中调用super方法，否则新建实例会报错，因为子类没有自己的this对象，而是继承父类的this对象，然后对其加工，不调用super\(\)方法，子类就得不到this对象
 
+```js
+class Animale {}
+        // class Dog extends Animale {
+        //     constructor() {
+        //     }
+        // }
+        class Dog2 extends Animale {
+            constructor() {
+                super()
+            }
+        }
+
+        // const dog1 = new Dog() // ReferenceError: this is not defined
+        const dog2 = new Dog2()
+```
+
 
 
