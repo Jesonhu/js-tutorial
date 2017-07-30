@@ -190,5 +190,11 @@ class Dog {
         console.log(cat.leg)
 ```
 
+---
+
+## 15 new.target属性
+
+> es6引入new.target属性，返回new命令作用于的那个构造函数，不是通过new调用的返回undefined
+
 
 
