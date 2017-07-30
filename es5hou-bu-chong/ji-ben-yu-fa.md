@@ -226,5 +226,23 @@ class Dog {
 
 > new.target返回当前的类，利用这个特点可以写出不能独立使用，必须继承后才能使用的类
 
+```js
+// 父类
+        class Animale {
+            constructor() {
+                if ( new.target === Animale ) {
+                    throw new Error('父类不能实例化')
+                }
+            }
+        }
+        class Dog extends Animale {
+            constructor(name) {
+                super();
+            }
+        }
+        // const x = new Animale('狗') // 报错
+        const y = new Dog('狗')
+```
+
 
 
