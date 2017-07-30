@@ -107,5 +107,9 @@ if ( Object.getPrototypeOf(Dog) === Animale ) {
 }
 ```
 
+## 3 super\(\)必须 且必须用在constructor方法里面
+
+> super\(\)相当于 Parent.prototype.constructor.call\(this\)
+
 
 
