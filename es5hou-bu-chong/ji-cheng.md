@@ -95,5 +95,9 @@ class Animale {
     console.log(dog1.showName())
 ```
 
+---
+
+## 2 Object.getPrototypeOf\(\) 方法可以在子类上获取父类
+
 
 
