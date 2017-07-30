@@ -156,7 +156,7 @@ class Parent {
     static myMethod(msg) {
         console.log('static', msg)
     }
-    
+
     myMethod(msg) {
         console.log('instance', msg)
     }
@@ -178,6 +178,14 @@ son.myMethod(2) // => instance 2
 ```
 
 > super随执行环境的变化而变化
+>
+>    1 constructor 方法里面
+>
+>    2 静态方法里面
+>
+>    3 普通方法里面
+
+> super使用的时候必须显示的指定是作为函数还是对象使用，否则会报错
 
 
 
