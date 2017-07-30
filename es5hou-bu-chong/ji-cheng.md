@@ -52,5 +52,25 @@ class Animale {}
         const dog2 = new Dog2()
 ```
 
+> ES5的继承，实质是先创建子类的实例对象this, 然后再将父类的方法添加到this上面\(ParentClass.apply\(this\)\)。ES6是先创建父类的实例对象this（所以必须先super\(\)），然后在用子类的钩子函数修改this
+
+> 如果子类没有constructor方法，这个方法会被默认添加。不管是否显式定义，任何一个子类都有constructor方法
+
+```js
+class Animale {
+        }
+
+        // class Dog extends Animale{}
+
+        // 子类未显式指定constructor方法等同于
+        class Dog extends Animale {
+            constructor(...args) {
+                super(...args)
+            }
+        }
+
+        const dog1 = new Dog()
+```
+
 
 
