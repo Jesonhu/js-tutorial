@@ -193,9 +193,11 @@ son.myMethod(2) // => instance 2
 
 大多数浏览器的 ES5 实现之中，每一个对象都有`__proto__`属性，指向对应的构造函数的`prototype`属性。Class 作为构造函数的语法糖，同时有`prototype`属性和`__proto__`属性，因此同时存在两条继承链。
 
-> （1）**子类的`__proto__`属性，表示构造函数的继承，总是指向父类。**
+> （1）**子类的**`__proto__`**属性，表示构造函数的继承，总是指向父类。**
 >
-> （2）**子类`prototype`属性的`__proto__`属性，表示方法的继承，总是指向父类的`prototype`属性。**
+> （2）**子类**`prototype`**属性的**`__proto__`**属性，表示方法的继承，总是指向父类的**`prototype`**属性。**
+
+> 子类实例的\_\__proto\_\_ 属性的\_\_proto\_\_属性，指向父类实例的\_\_proto\_\_。即子类原型的原型是父类的原型_
 
 ```js
 class Parent {}
@@ -286,6 +288,42 @@ class A extends null {
 // A也是一个普通的函数，所以直接继承Function.prototype
 console.log( A.__proto__ === Function.prototype ) // => true
 console.log( A.prototype.__proto__ === undefined ) // => true
+```
+
+实例的\[\_\__proto\_\__\]
+
+```js
+class Parent {}
+        class Son extends Parent {}
+
+        const parent1 = new Parent()
+        const son1 = new Son()
+
+        console.log( son1.__proto__ === parent1.__proto__ ) // => false
+        console.log( son1.__proto__ === Son.prototype ) // => true
+        console.log( son1.__proto__ === Parent.prototype ) // => false
+        console.log( son1.__proto__.__proto__ === parent1.__proto__ ) // => true
+        console.log( son1.__proto__.__proto__ === parent1.prototype ) // => false
+        console.log( son1.__proto__.__proto__ === Parent.prototype ) // => true
+```
+
+通过子类实例的\_\__proto_\_\_.\_\__proto_\_\_可以修改父类实例的行为
+
+```js
+class Parent {
+    printName() { console.log('Parent') }
+}
+class Son extends Parent {
+}
+const son1 = new Son()
+const parent1 = new Parent()
+son1.__proto__.__proto__.printName = function() {
+    console.log('Son')
+}
+const parent2 = new Parent()
+
+console.log(parent1.printName()) // => Son
+console.log(parent2.printName()) // => Son
 ```
 
 
