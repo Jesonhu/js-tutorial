@@ -1,3 +1,45 @@
+## 7 私有方法 es6 class不提供私有方法，只能模拟实现
+
+```js
+// es6不提供私有方法，必须通过变通方法实现
+        // 实现方式1
+        class Dog {
+            // 公有方法
+            sayName(name) {
+                this_bar(name)
+            }
+            // 私有方法
+            _bar(baz) {
+                return this.snaf = baz
+            }
+        }
+        // 实现方式2
+        class Car {
+            // 公有方法
+            showPrice(length) {
+                carLength.call(this, length)
+            }
+        }
+        // 私有方法2
+        function carLength(length) {
+            return this.snaf = length
+        }
+
+        // 实现方法3
+        const cbar = Symbol('bar')
+        const csnaf = Symbol('snaf')
+        
+        export default class myClass {
+            // 公有方法
+            foo(baz) {
+                this[cbar](baz)
+            }
+            // 私有方法
+            [cbar](baz) {
+                return this[csnaf] = baz
+            }
+        }
+```
 
 ---
 
