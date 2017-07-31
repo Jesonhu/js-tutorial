@@ -55,6 +55,80 @@
 
 > 在构造函数中通过var let const定义的变量其作用域局限于该构造函数内——在prototype上定义的方法无法访问这个变量，因为这些方法有其自己的作用域。想要通过公有的方法来访问私有的变量，需要创建一个包含两个作用域的新作用域。为此，我们可以创建一个自我执行的函数，称为闭包。代码如下。
 
+```js
+// JavaScript有一个非强制的但很有用的编程惯例，
+// 就是对所以私有变量或函数名加一个下划线（_）作为前缀，以标识他们是私有的。
+
+        const  Alarm = (function() {
+            function Alarm() {}
+
+            // 私有属性
+            let _isLocked = false
+            let _isAlarmed = false
+            let _alarmMsg = '闹钟正在响'
+
+            // 私有方法
+            function _alarm() {
+                _isAlarmed = true
+                alert(_alarmMsg)
+            }
+            function _disableAlarm() {
+                _isAlarmed = false
+            }
+            // **所有定义在原型上方法都是“公有”的，当我们在此处创建的类在闭包结束处被返回后，就可以在当前作用域之外**
+            // 访问这些方法了
+            Alarm.prototype.lock = function() {
+                _isLocked = true
+                _alarm()
+            }
+            Alarm.prototype.unlock = function() {
+                _isLocked = false
+                _disableAlarm()
+            }
+            // 定义一个getter函数来对来对私有变量的值作只读访问——相当于受保护的
+            Alarm.prototype.getIsLocked = function () {
+                // 只返回，没提供修改的方法即是只读的
+                return _isLocked
+            }
+            // setter函数进行只写访问
+            Alarm.prototype.setAlarmMsg = function(msg) {
+                _alarmMsg = msg
+            }
+
+            return Alarm
+        }())
+
+        const house = new Alarm()
+        house.lock() // => 弹出 '闹钟正在响'
+        // house._alarm() // => 报错 实例对象不能访问私有属性和方法
+
+        console.log( house.getIsLocked() ) // => true (返回isLocked,但不允许对其直接访问，所以该变量是只读的)
+        house.setAlarmMsg('闹钟正在叮叮叮')
+        house.lock() // => 弹出 '闹钟正在叮叮叮'
+
+        // 一般情况下，我们应该讲所有变量和函数都定义为私有，除非明确需要将某些变量和方法公开暴露给外部。
+        // 即使需要公开暴露，也应先考虑使用getter和setter方法来访问变量，这么做的好处是可以限制他人所能实施的操作，
+        // 使其只能通过“类”提供的功能完成其需求，这样有助于减少“类”的使用者代码出错的机会
+
+        // 例子2
+        function Student() {
+            // 私有
+            let _id = 9527
+            let _name = '唐伯虎'
+            function _show() {
+                window.alert(`_show ${_id} ${_name}`)
+            }
+            // 公有
+            this.age = 20
+            this.show = function() {
+                _show()
+            }
+        }
+        const student = new Student()
+        alert(`${student._id} ${student._name} ${student.age}`) // => undefined undefined 20
+        student.show() // => _show 9527 唐伯虎
+```
+
 ## 8 私有属性 es6通过\#表示私有属性
 
 ---
