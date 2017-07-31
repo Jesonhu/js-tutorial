@@ -43,7 +43,7 @@
 
 ## es5后补充
 
-* es6类
+* [es6类](es5hou-bu-chong/es6lei.md)
   * [基本语法](es5hou-bu-chong/ji-ben-yu-fa.md)
   * [继承](es5hou-bu-chong/ji-cheng.md)
 
