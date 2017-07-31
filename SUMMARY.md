@@ -28,6 +28,7 @@
   * [Promise](docs/ch5/object/promise.md)
     * [应用](docs/ch5/object/promise/ying-yong.md)
 * [5.2 Array类型](docs/ch5/array.md)
+  * [遍历数组的方法](docs/ch5/array/bian-li-shu-zu-de-fang-fa.md)
 * [5.3 Date类型](docs/ch5/date.md)
 * [5.4 RegExp类型](docs/ch5/regexp/README.md)
   * [5.4.1 字符串使用Rexpex](docs/ch5/regexp/string.md)

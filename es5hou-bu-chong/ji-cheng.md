@@ -397,5 +397,48 @@ myclass1.length = 0
 console.log( myclass1[0] ) // => undefined
 ```
 
+> 上面代码定义了一个`MyArray`类，继承了`Array`构造函数，因此就可以从`MyArray`生成数组的实例。这意味着，ES6 可以自定义原生数据结构（比如`Array`、`String`等）的子类，这是 ES5 无法做到的。
+>
+> 上面这个例子也说明，`extends`关键字不仅可以用来继承类，还可以用来继承原生的构造函数。因此可以在原生数据结构的基础上，定义自己的数据结构。下面就是定义了一个带版本功能的数组。
+
+```js
+// 自带版本控制的数组 ???
+class VersionedArray extends Array {
+    constructor() {
+        super()
+        this.history = [[]]
+    }
+    // 设置到历史记录中
+    commit() {
+        console.log(this.slice()) // => [1, 2, history: Array(1)]
+        this.history.push(this.slice())
+    }
+    // 可以恢复到上一次保存的历史
+    revert() {
+       this.splice(0, this.length, ...this.history[this.history.length - 1])    
+    }
+}
+const arr1 = new VersionedArray()
+
+arr1.push(1)
+arr1.push(2)
+console.log( arr1.history ) // => [Array(0)]
+
+arr1.commit()
+console.log( arr1.history ) // => [Array(0), VersionedArray(2)]
+
+arr1.push(3)
+console.log( arr1.history )
+
+arr1.revert()
+console.log(arr1)
+```
+
+---
+
+## 6 Mixin模式的实现
+
+> 将多个类的接口混入到另一个类
+
 
 
