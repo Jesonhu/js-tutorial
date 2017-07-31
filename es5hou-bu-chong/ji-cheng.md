@@ -107,6 +107,8 @@ if ( Object.getPrototypeOf(Dog) === Animale ) {
 }
 ```
 
+---
+
 ## 3 super\(\)必须 且必须用在constructor方法里面
 
 > super\(\)相当于 Parent.prototype.constructor.call\(this\) super虽然代表了父类的构造函数，但是**返回的是子类的实例**。即super内部的this指的是B
@@ -196,8 +198,8 @@ son.myMethod(2) // => instance 2
 > （1）**子类的**`__proto__`**属性，表示构造函数的继承，总是指向父类。**
 >
 > （2）**子类**`prototype`**属性的**`__proto__`**属性，表示方法的继承，总是指向父类的**`prototype`**属性。**
-
-> 子类实例的\_\__proto\_\_ 属性的\_\_proto\_\_属性，指向父类实例的\_\_proto\_\_。即子类原型的原型是父类的原型_
+>
+> 子类实例的\_\__proto\_\_ 属性的\_\_proto\_\_属性，指向父类实例的\_\_proto\_\_。即子类原型的原型是父类的原型\_
 
 ```js
 class Parent {}
@@ -290,7 +292,7 @@ console.log( A.__proto__ === Function.prototype ) // => true
 console.log( A.prototype.__proto__ === undefined ) // => true
 ```
 
-实例的\[\_\__proto\_\__\]
+实例的\[\_\__proto\_\_\_\]
 
 ```js
 class Parent {}
@@ -325,6 +327,24 @@ const parent2 = new Parent()
 console.log(parent1.printName()) // => Son
 console.log(parent2.printName()) // => Son
 ```
+
+---
+
+## 5 原生构造函数的继承
+
+> js原生构造函数
+
+       Boolean\(\)
+
+* Number\(\)
+* String\(\)
+* Array\(\)
+* Date\(\)
+* Function\(\)
+* RegExp\(\)
+* Error\(\)
+* Object\(\)
+* Symbol\(\)
 
 
 
