@@ -334,7 +334,9 @@ console.log(parent2.printName()) // => Son
 
 > js原生构造函数
 
-       Boolean\(\)
+```
+   Boolean\(\)
+```
 
 * Number\(\)
 * String\(\)
@@ -345,6 +347,55 @@ console.log(parent2.printName()) // => Son
 * Error\(\)
 * Object\(\)
 * Symbol\(\)
+
+> ES5之前不能继承原生构造函数
+
+```js
+function MyArray() {
+            Array.apply(this, arguments)
+        }
+        // MyArray类的原型继承Array.prototype的原型对象。并设置自己的配置
+        MyArray.prototype = Object.create(Array.prototype, {
+            constructor: {
+                value: MyArray,
+                writeable: true,
+                configurable: true,
+                enumerable: true 
+            }
+        })
+
+        // 但是行为与Array完全不一致
+        const myArray1 = new MyArray()
+        myArray1[0] = '周一'
+        // Array会自动维护其长度，但是继承的类不会
+        console.log( myArray1.length ) // => 0
+
+        // Array 会成为一个空数组
+        myArray1.length = 0
+        console.log( myArray1[0] ) // => '周一'
+```
+
+> 问题分析：
+
+之所以会发生这种情况，是因为子类无法获得原生构造函数的内部属性，通过Array.apply\(\)或者分配给原型对象都不行。原生构造函数会忽略apply方法传入的this，也就是说，原生构造函数的this无法绑定，导致拿不到内部属性。
+
+ES5 是先新建子类的实例对象this，再将父类的属性添加到子类上，由于父类的内部属性无法获取，导致无法继承原生的构造函数。比如，Array构造函数有一个内部属性\[\[DefineOwnProperty\]\]，用来定义新属性时，更新length属性，这个内部属性无法在子类获取，导致子类的length属性行为不正常。\(call也是这个问题\)
+
+> ES6 允许继承原生构造函数定义子类，因为 ES6 是先新建父类的实例对象this，然后再用子类的构造函数修饰this，使得父类的所有行为都可以继承。下面是一个继承Array的例子。
+
+```js
+class MyClass extends Array {
+    constructor(...args) {
+        super(...args)
+    }
+}
+const myclass1 = new MyClass()
+myclass1[0] = '周一'
+console.log( myclass1.length ) // => 1
+
+myclass1.length = 0
+console.log( myclass1[0] ) // => undefined
+```
 
 
 
