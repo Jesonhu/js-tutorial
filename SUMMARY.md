@@ -42,11 +42,11 @@
 * [5.7 单体内置对象](docs/ch5/57-dan-ti-nei-zhi-dui-xiang.md)
 * [5.8 小结](docs/ch5/summary.md)
 
-## es5后补充
+## 现代JS
 
-* [es6类](es5hou-bu-chong/es6lei.md)
-  * [基本语法](es5hou-bu-chong/ji-ben-yu-fa.md)
-  * [继承](es5hou-bu-chong/ji-cheng.md)
+  * ES6类
+    * [基本语法](docs/modern-js/class.md)
+    * [继承](docs/modern-js/class-extends.md)
 
 ## ch6-模块概念
 
