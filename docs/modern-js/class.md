@@ -1,16 +1,18 @@
 ## 知识点：
+    [简介](#1 简介)[^1]
+    [严格模式]()
+    [constructor方法]()
+    [类的实例对象]()
+    [Class表达式]()
+    [不存在变量提升]()
+    [ES6 class 中的 私有方法 ](#7-私有方法-es6-class不提供私有方法，只能模拟实现)
+    [ES6 class 中的私有属性](#8-私有属性-es6通过表示私有属性)
+    ES6 class [this指向](#9-类方法中this的指向)
+    [ES6 class name属性](#10-name属性返回class关键字后面的类名)
 
-[ES6 class 中的 私有方法 ](#7-私有方法-es6-class不提供私有方法，只能模拟实现)
+****
 
-[ES6 class 中的私有属性](#8-私有属性-es6通过表示私有属性)
-
-ES6 class [this指向](#9-类方法中this的指向)
-
-[ES6 class name属性](#10-name属性返回class关键字后面的类名)
-
-ss
-
----
+## 1 简介
 
 ## 7 私有方法 es6 class不提供私有方法，只能模拟实现
 
@@ -344,5 +346,5 @@ class Dog {
         const y = new Dog('狗')
 ```
 
-
+[^1]: 返回
 
