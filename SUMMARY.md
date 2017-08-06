@@ -1,11 +1,13 @@
+#js学习参考手册
 
-# PART1--JS概述
+## PART1--JS概述
 
+### 引子 
 * ch1
   * [在线贷款计算器](part1-jsgai-shu/zai-xian-dai-kuan-ji-suan-qi.md)
   * [ch3-类型、值和变量](part1-jsgai-shu/ch3lei-xing-3001-zhi-he-bian-liang.md)
 
-## ch3-基本概念
+### ch3-基本概念
 
 * [Introduction](README.md)
 * [3.1 语法\(syntax grammer\)](docs/ch3/syntax.md)
@@ -21,7 +23,7 @@
 * [Defining Methods](methods.md)
   * 333
 
-## ch5-引用类型
+### ch5-引用类型
 
 * [5.1 Object类型](docs/ch5/object.md)
   * [Promise](docs/ch5/object/promise.md)
