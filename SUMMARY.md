@@ -1,6 +1,5 @@
-# Summary
 
-## PART1--JS概述
+# PART1--JS概述
 
 * ch1
   * [在线贷款计算器](part1-jsgai-shu/zai-xian-dai-kuan-ji-suan-qi.md)
@@ -42,16 +41,14 @@
 * [5.7 单体内置对象](docs/ch5/57-dan-ti-nei-zhi-dui-xiang.md)
 * [5.8 小结](docs/ch5/summary.md)
 
-## 现代JS
+# 现代JS
 
   * ES6类
     * [基本语法](docs/modern-js/class.md)
     * [继承](docs/modern-js/class-extends.md)
-
-## ch6-模块概念
-
-* [6.1 概述](docs/ch6/1.md)
-* [6.2 严格模式](docs/ch6/2.md)
-* [6.3 模块命令](docs/ch6/3.md)
-* [6.4 模块整体加载](docs/ch6/4.md)
+  * Module模块
+    * [概述](docs/ch6/1.md)
+    * [严格模式](docs/ch6/2.md)
+    * [模块命令](docs/ch6/3.md)
+    * [模块整体加载](docs/ch6/4.md)
 
