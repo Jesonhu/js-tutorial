@@ -101,6 +101,14 @@ Object.prototype === Object.__proto__.__proto__ // => true Object构造函数，
 // 原型对象的__proto__，指向Object.prototype。Object.prototype.__proto__指向null
 ```
 
+> 构造函数的prototype或者构造函数作为对象的\_\__proto\_\_可以看做继承。但是构造函数（函数）特殊，构造函数的prototype表示_
+>
+> 原型对象\(详情看：2.1》参考1》明确基础点》2 方法\)
+>
+> Object.prototype 构造函数的
+>
+> 或者Object.\_\__proto_\_\_ 继承至Function.prototype
+
 ===============================================================================================
 
 > prototype 是函数才有的属性，准确的说是构造函数才有的属性。\([普通函数和函数表达式都可以看成是构造函数](/docs/part1/object/basicfn-vs-construtor.md)\)
