@@ -62,7 +62,7 @@ const fn1 = function() {}
 fn1.prototype // => Object{} 包含[constructor],[__proto__]
 ```
 
-> prototype 是函数才有的属性，准确的说是构造函数才有的属性。\(普通函数和函数表达式都可以看成是构造函数\)
+> prototype 是函数才有的属性，准确的说是构造函数才有的属性。\([普通函数和函数表达式都可以看成是构造函数](/docs/part1/object/basicfn-vs-construtor.md)\)
 >
 > \_\__proto_\_\_是所有JavaScript对象（包括函数）都有的属性。
 >
