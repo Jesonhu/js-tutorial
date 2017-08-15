@@ -97,35 +97,40 @@ Object.prototype.__proto__ === null // => true 对象原型的__proto__指向nul
 Object.__proto__ // => function() {} 控制台返回
 Object.__proto__ === function() {} // => false
 Object instanceof Function // => true Object是对象的构造函数，本身是一个函数
-Object.prototype === Object.__proto__.__proto__ // => true Object构造函数，Object.__proto__是一个原型对象，
+Object.prototype === Object.__proto__.__proto__ // => true Object是构造函数，Object.__proto__是一个原型对象，
 // 原型对象的__proto__，指向Object.prototype。Object.prototype.__proto__指向null
 ```
 
 > 构造函数的prototype或者构造函数作为对象的\_\__proto\_\_可以看做继承。但是构造函数（函数）特殊，构造函数的prototype表示原型对象\(详情看：2.1》参考1》明确基础点》2 方法\)
 >
 > 区别于：
->
-> Object.prototype.\_\__proto\_\__ === null  // =&gt; true
->
-> Study.prototype.\_\__proto_\_\_ === Object.prototype // =&gt; true
->
-> Object instanceof Function // =&gt; true
->
-> Object.prototype === Object.\_\__proto\_\__.\_\_proto\_\_ // =&gt; true
->
-> Object.prototype 构造函数的
->
+
+```js
+Object.prototype.__proto__ === null   // => true
+Study.prototype.__proto__ === Object.prototype  // => true
+Object instanceof Function    // => true
+Object.prototype === Object.__proto__.__proto__ // => true 不好理解  Object.__proto__是原型对象，原型对象的__proto__。
+// 与普通构造函数的原型对象的__proto__有区别
+
+Study.prototype.__proto__ === Object.prototype // => true 原型对象的__proto__指向Object.prototype
+Object.prototype.__proto__ === null // => true 对象原型的__proto__指向null Object是特殊的构造函数
+```
+
 > 或者Object.\_\__proto_\_\_ 继承至Function.prototype
 
 ===============================================================================================
 
 > prototype 是函数才有的属性，准确的说是构造函数才有的属性。\([普通函数和函数表达式都可以看成是构造函数](/docs/part1/object/basicfn-vs-construtor.md)\)
 >
-> \_\__proto_\_\_是所有JavaScript对象（包括函数）都有的属性。
+> \_\__proto_\_\_是所有JavaScript对象（包括函数）都有的属性。通常指\[\[prototype\]\]是一个隐藏属性
 >
 > prototype 是规范中定义的属性，JS运行时环境必须实现。
 >
-> \_\__proto_\_\_不是一个标准属性，只有chrome的v8等部分引擎才支持。前者表示，在用某个构造函数实例化一个对象时，这个被实例化出来的对象的原型是谁。后者表示某个对象的原型。
+> \_\__proto_\_\_不是一个标准属性，大部分JavaScript引擎在所有对象上都支持一个名为\_\_proto\_\_的属性，该属性可以直接读写\[\[Prototype\]\]属性。
+>
+> prototype表示，在用某个构造函数实例化一个对象时，这个被实例化出来的对象的原型是谁。
+>
+> \_\__proto_\_表示某个对象的原型。ES6中，使用Object.setPrototypeOf可以直接修改一个对象的\[\[prototype\]\]
 
 [BackTop](#知识点)
 
