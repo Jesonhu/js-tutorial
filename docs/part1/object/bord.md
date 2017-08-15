@@ -15,7 +15,7 @@
 
 ![](/assets/part1-object-bord01.png)
 
->
+&gt;
 
 ---
 
@@ -23,7 +23,7 @@
 
 #### 2.1 \__proto\__ 与 prototype
 
-**参考1：**来源知乎。[链接](https://www.zhihu.com/question/34183746/answer/58068402)
+**参考1：**来源知乎 作者：doris  [链接](https://www.zhihu.com/question/34183746/answer/58068402)
 
 关系图：
 
@@ -39,42 +39,36 @@ function Study() {
   basic: '持续不断学习'
 }
 var study1 = new Study()
-study1.__proto__ == Study.prototype // => true
+study1.__proto__ === Study.prototype // => true
 ```
 
 2.方法\(Function\)  
-方法这个特殊的对象，除了和其他对象一样有上述\_proto\_属性之外，还有自己特有的属性——原型属性（prototype），这个属性是一个指针，指向一个对象，这个对象的用途就是包含所有实例共享的属性和方法（我们把这个对象叫做原型对象）。原型对象也有一个属性，叫做constructor，这个属性包含了一个指针，指回原构造函数。
+方法\(或者被称为函数\)这个特殊的对象，除了和其他对象一样有上述\_proto\_属性之外，还有自己特有的属性——原型属性（prototype），这个属性是一个指针，指向一个对象，这个对象的用途就是包含所有实例共享的属性和方法（我们把这个对象叫做原型对象）。原型对象也有一个属性，叫做constructor，这个属性包含了一个指针，指回原构造函数。
 
-  
+```js
+function Study() {
+  basic: '持续不断学习'
+}
+var study1 = new Study()
+study1.prototype // => undefined
+Study.prototype.constructor === Study // => true
 
+// 函数
+function fn() {}
+fn.prototype // => Object{} 包含[construcctor],[__proto__]
 
-  
-
-
-作者：doris
-
-  
-
-
-链接：https://www.zhihu.com/question/34183746/answer/58155878
-
-  
-
-
-来源：知乎
-
-  
-
-
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+// 函数表达式
+const fn1 = function() {}
+fn1.prototype // => Object{} 包含[construcctor],[__proto__]
+```
 
 > prototype 是函数才有的属性，准确的说是构造函数才有的属性。
 >
-> \_\__proto\_\__是所有JavaScript对象（包括函数）都有的属性。
+> \_\__proto_\_\_是所有JavaScript对象（包括函数）都有的属性。
 >
 > prototype 是规范中定义的属性，JS运行时环境必须实现。
 >
-> \_\__proto\_\__不是一个标准属性，只有chrome的v8等部分引擎才支持。前者表示，在用某个构造函数实例化一个对象时，这个被实例化出来的对象的原型是谁。后者表示某个对象的原型。
+> \_\__proto\_\_\_不是一个标准属性，只有chrome的v8等部分引擎才支持。前者表示，在用某个构造函数实例化一个对象时，这个被实例化出来的对象的原型是谁。后者表示某个对象的原型。
 
 [BackTop](#知识点)
 
