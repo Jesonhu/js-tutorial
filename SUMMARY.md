@@ -1,16 +1,18 @@
 # Summary
 
-## PART1--JS概述
+## PART1--JS语言核心
 
 * ch1
   * [在线贷款计算器](part1-jsgai-shu/zai-xian-dai-kuan-ji-suan-qi.md)
   * [ch3-类型、值和变量](part1-jsgai-shu/ch3lei-xing-3001-zhi-he-bian-liang.md)
 
+* ch6 Object\(对象\)
+
 ## ch3-基本概念
 
 * [Introduction](README.md)
-* [3.1 语法\(syntax grammer\)](docs/ch3/syntax.md)
 * 3.2 关键字和保留字
+* [3.1 语法\(syntax grammer\)](docs/ch3/syntax.md)
 * 3.3 变量
 * 3.4 数据类型
 * 3.5 操作符
@@ -54,4 +56,6 @@
 * [6.2 严格模式](docs/ch6/2.md)
 * [6.3 模块命令](docs/ch6/3.md)
 * [6.4 模块整体加载](docs/ch6/4.md)
+
+
 
