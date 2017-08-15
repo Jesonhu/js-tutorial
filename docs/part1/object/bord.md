@@ -101,10 +101,18 @@ Object.prototype === Object.__proto__.__proto__ // => true Object构造函数，
 // 原型对象的__proto__，指向Object.prototype。Object.prototype.__proto__指向null
 ```
 
-> 构造函数的prototype或者构造函数作为对象的\_\__proto\_\_可以看做继承。但是构造函数（函数）特殊，构造函数的prototype表示_
+> 构造函数的prototype或者构造函数作为对象的\_\__proto\_\_可以看做继承。但是构造函数（函数）特殊，构造函数的prototype表示原型对象\(详情看：2.1》参考1》明确基础点》2 方法\)
 >
-> 原型对象\(详情看：2.1》参考1》明确基础点》2 方法\)
+> 区别于：
 >
+> Object.prototype.\_\__proto\_\_ === null  // =&gt; true_
+>
+> Study.prototype.\_\__proto_\_\_ === Object.prototype // =&gt; true
+>
+> Object instanceof Function // =&gt; true
+>
+> Object.prototype === Object.\_\__proto\_\_.\_\_proto\_\_ // =&gt; true_
+
 > Object.prototype 构造函数的
 >
 > 或者Object.\_\__proto_\_\_ 继承至Function.prototype
