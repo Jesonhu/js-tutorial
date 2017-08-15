@@ -105,14 +105,14 @@ Object.prototype === Object.__proto__.__proto__ // => true Object构造函数，
 >
 > 区别于：
 >
-> Object.prototype.\_\__proto\_\_ === null  // =&gt; true_
+> Object.prototype.\_\__proto\__\_ === null  // =&gt; true
 >
 > Study.prototype.\_\__proto_\_\_ === Object.prototype // =&gt; true
 >
 > Object instanceof Function // =&gt; true
 >
-> Object.prototype === Object.\_\__proto\_\_.\_\_proto\_\_ // =&gt; true_
-
+> Object.prototype === Object.\_\__proto\__\_.\_\_proto\_\_ // =&gt; true
+>
 > Object.prototype 构造函数的
 >
 > 或者Object.\_\__proto_\_\_ 继承至Function.prototype
