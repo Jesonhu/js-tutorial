@@ -5,8 +5,7 @@
 * ch1
   * [在线贷款计算器](part1-jsgai-shu/zai-xian-dai-kuan-ji-suan-qi.md)
   * [ch3-类型、值和变量](part1-jsgai-shu/ch3lei-xing-3001-zhi-he-bian-liang.md)
-
-* ch6 Object\(对象\)
+* [ch6 Object\(对象\)](part1-jsyu-yan-he-xin/ch6-objectdui-8c6129.md)
 
 ## ch3-基本概念
 
