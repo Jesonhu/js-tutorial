@@ -1,6 +1,6 @@
 #js学习参考手册
 
-  ## PART1--JS概述
+  ## PART1--JS语言核心
 
     * ch1 引子
       * [在线贷款计算器](part1-jsgai-shu/zai-xian-dai-kuan-ji-suan-qi.md)
@@ -38,7 +38,11 @@
       * [5.7 单体内置对象](docs/ch5/57-dan-ti-nei-zhi-dui-xiang.md)
       * [5.8 小结](docs/ch5/summary.md)
 
-## 现代JS
+    * ch6-对象
+      * 知识扩展
+        * [JS 诞生](docs/part1/object/bord.md)
+
+## part4 现代JS
 
   * ES6类
     * [基本语法](docs/modern-js/class.md)
@@ -48,4 +52,3 @@
     * [严格模式](docs/ch6/2.md)
     * [模块命令](docs/ch6/3.md)
     * [模块整体加载](docs/ch6/4.md)
-
