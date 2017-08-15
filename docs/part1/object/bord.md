@@ -96,9 +96,10 @@ Object.prototype.__proto__ === null // => true 对象原型的__proto__指向nul
 
 Object.__proto__ // => function() {} 控制台返回
 Object.__proto__ === function() {} // => false
+Object instanceof Function // => true Object是对象的构造函数，本身是一个函数
+Object.prototype === Object.__proto__.__proto__ // => true Object构造函数，Object.__proto__是一个原型对象，
+// 原型对象的__proto__，指向Object.prototype
 ```
-
-
 
 ===============================================================================================
 
