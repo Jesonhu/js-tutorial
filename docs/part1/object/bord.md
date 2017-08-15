@@ -55,11 +55,11 @@ Study.prototype.constructor === Study // => true
 
 // 函数
 function fn() {}
-fn.prototype // => Object{} 包含[construcctor],[__proto__]
+fn.prototype // => Object{} 包含[constructor],[__proto__]
 
 // 函数表达式
 const fn1 = function() {}
-fn1.prototype // => Object{} 包含[construcctor],[__proto__]
+fn1.prototype // => Object{} 包含[constructor],[__proto__]
 ```
 
 > prototype 是函数才有的属性，准确的说是构造函数才有的属性。
