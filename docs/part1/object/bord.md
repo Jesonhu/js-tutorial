@@ -23,6 +23,8 @@
 
 #### 2.1 \__proto\__ 与 prototype
 
+
+
 **参考1：**来源知乎 作者：doris  [链接](https://www.zhihu.com/question/34183746/answer/58068402)
 
 关系图：
