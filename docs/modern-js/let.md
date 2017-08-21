@@ -275,6 +275,16 @@ function f() {
 }
 
 f(); // undefined
+
+var tmp = new Date();
+
+function f() {
+    console.log(tmp);
+    if (false) {
+        let tmp = 'hello world';
+    }
+}
+f(); // => 输出外部的tmp Mon Aug 21 2017 16:27:17 GMT+0800 (中国标准时间)
 ```
 
 上面代码的原意是，`if`代码块的外部使用外层的`tmp`变量，内部使用内层的`tmp`变量。但是，函数`f`执行后，输出结果为`undefined`，原因在于变量提升，导致内层的`tmp`变量覆盖了外层的`tmp`变量。
