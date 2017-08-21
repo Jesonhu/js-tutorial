@@ -145,6 +145,17 @@ if (true) {
   tmp = 123;
   console.log(tmp); // 123
 }
+
+// var声明
+if (true) {
+    tmp = 'abc';
+    console.log(tmp); // => 'abc'
+
+    var tmp;
+    console.log(tmp); // => 'abc'
+    tmp = 123;
+    console.log(tmp); // => 'abc'
+}
 ```
 
 上面代码中，在`let`命令声明变量`tmp`之前，都属于变量`tmp`的“死区”。
