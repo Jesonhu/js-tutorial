@@ -1,12 +1,11 @@
+# Summary
+
 ## PART1--JS语言核心
 
 * ch1 引子
-
   * [在线贷款计算器](part1-jsgai-shu/zai-xian-dai-kuan-ji-suan-qi.md)
   * [ch3-类型、值和变量](part1-jsgai-shu/ch3lei-xing-3001-zhi-he-bian-liang.md)
-
 * ch3-基本概念
-
   * [Introduction](README.md)
   * [3.1 语法\(syntax grammer\)](docs/ch3/syntax.md)
   * 3.2 关键字和保留字
@@ -18,9 +17,7 @@
   * 3.6 语句
   * 3.7 函数
   * 3.8 小结
-
 * ch5-引用类型
-
   * [5.1 Object类型](docs/ch5/object.md)
   * [Promise](docs/ch5/object/promise.md)
     * [应用](docs/ch5/object/promise/ying-yong.md)
@@ -38,15 +35,15 @@
   * [5.6.1 string](docs/ch5/string.md)
   * [5.7 单体内置对象](docs/ch5/57-dan-ti-nei-zhi-dui-xiang.md)
   * [5.8 小结](docs/ch5/summary.md)
-
 * ch6-对象
-
   * 知识扩展
     * [JS 诞生](docs/part1/object/bord.md)
 
 ## part4 现代JS
 
-* ES6类
+* [版权说明](/docs/modern-js/README.md)
+
+* [ES6类](part4-xian-dai-js/es6lei.md)
   * [基本语法](docs/modern-js/class.md)
   * [继承](docs/modern-js/class-extends.md)
 * Module模块
