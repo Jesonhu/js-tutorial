@@ -47,10 +47,10 @@ ES6 的第一个版本，就这样在2015年6月发布了，正式名称就是�
 
 一种新的语法从提案到变成正式标准，需要经历五个阶段。每个阶段的变动都需要由 TC39 委员会批准。
 
-* Stage 0 - Strawman（展示阶段）
-* Stage 1 - Proposal（征求意见阶段）
-* Stage 2 - Draft（草案阶段）
-* Stage 3 - Candidate（候选人阶段）
+* Stage 0 - Strawman（展示阶段）\[Strawman:稻草人\]
+* Stage 1 - Proposal（征求意见阶段）\[Proposal: 建议\]
+* Stage 2 - Draft（草案阶段）\[Draft: 草稿，草案\]
+* Stage 3 - Candidate（候选人阶段）\[Candidate: 候选人\]
 * Stage 4 - Finished（定案阶段）
 
 **一个提案只要能进入 Stage 2，就差不多肯定会包括在以后的正式标准里面。**ECMAScript 当前的所有提案，可以在 TC39 的官方网站[Github.com/tc39/ecma262](https://github.com/tc39/ecma262)查看。
