@@ -43,6 +43,7 @@
 
 * [版权说明](/docs/modern-js/README.md)
 * [ECMAScript 6简介](docs/modern-js/intro.md)
+* [let 和 const命令](docs/modern-js/let.md)
 * [ES6类](part4-xian-dai-js/es6lei.md)
   * [基本语法](docs/modern-js/class.md)
   * [继承](docs/modern-js/class-extends.md)

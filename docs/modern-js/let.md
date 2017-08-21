@@ -1,5 +1,19 @@
 # let 和 const 命令
 
+#### 知识点
+
+1. [let命令](#let-命令)
+2. [块级作用域](#块级作用域)
+3. [const命令](#const-命令)
+4. [顶层对象的属性](#顶层对象的属性)
+5. [global对象](#global-对象)
+
+\[let: 允许\]
+
+\[const: 常数不变的\]
+
+---
+
 ## let 命令
 
 ### 基本用法
@@ -40,7 +54,7 @@ for (var i = 0; i < 10; i++) {
     console.log(i);
   };
 }
-a[6](); // 10
+a[6](); // 6
 ```
 
 上面代码中，变量`i`是`var`命令声明的，在全局范围内都有效，所以全局只有一个变量`i`。每一次循环，变量`i`的值都会发生改变，而循环内被赋给数组`a`的函数内部的`console.log(i)`，里面的`i`指向的就是全局的`i`。也就是说，所有数组`a`的成员里面的`i`，指向的都是同一个`i`，导致运行时输出的是最后一轮的`i`的值，也就是10。
@@ -361,9 +375,9 @@ ES6 就完全不一样了，理论上会得到“I am outside!”。因为块级
 
 原来，如果改变了块级作用域内声明的函数的处理规则，显然会对老代码产生很大影响。为了减轻因此产生的不兼容问题，ES6在[附录B](http://www.ecma-international.org/ecma-262/6.0/index.html#sec-block-level-function-declarations-web-legacy-compatibility-semantics)里面规定，浏览器的实现可以不遵守上面的规定，有自己的[行为方式](http://stackoverflow.com/questions/31419897/what-are-the-precise-semantics-of-block-level-functions-in-es6)。
 
-- 允许在块级作用域内声明函数。
-- 函数声明类似于`var`，即会提升到全局作用域或函数作用域的头部。
-- 同时，函数声明还会提升到所在的块级作用域的头部。
+* 允许在块级作用域内声明函数。
+* 函数声明类似于`var`，即会提升到全局作用域或函数作用域的头部。
+* 同时，函数声明还会提升到所在的块级作用域的头部。
 
 注意，上面三条规则只对 ES6 的浏览器实现有效，其他环境的实现不用遵守，还是将块级作用域的函数声明当作`let`处理。
 
@@ -607,15 +621,15 @@ window.b // undefined
 
 ES5 的顶层对象，本身也是一个问题，因为它在各种实现里面是不统一的。
 
-- 浏览器里面，顶层对象是`window`，但 Node 和 Web Worker 没有`window`。
-- 浏览器和 Web Worker 里面，`self`也指向顶层对象，但是 Node 没有`self`。
-- Node 里面，顶层对象是`global`，但其他环境都不支持。
+* 浏览器里面，顶层对象是`window`，但 Node 和 Web Worker 没有`window`。
+* 浏览器和 Web Worker 里面，`self`也指向顶层对象，但是 Node 没有`self`。
+* Node 里面，顶层对象是`global`，但其他环境都不支持。
 
 同一段代码为了能够在各种环境，都能取到顶层对象，现在一般是使用`this`变量，但是有局限性。
 
-- 全局环境中，`this`会返回顶层对象。但是，Node 模块和 ES6 模块中，`this`返回的是当前模块。
-- 函数里面的`this`，如果函数不是作为对象的方法运行，而是单纯作为函数运行，`this`会指向顶层对象。但是，严格模式下，这时`this`会返回`undefined`。
-- 不管是严格模式，还是普通模式，`new Function('return this')()`，总是会返回全局对象。但是，如果浏览器用了CSP（Content Security Policy，内容安全政策），那么`eval`、`new Function`这些方法都可能无法使用。
+* 全局环境中，`this`会返回顶层对象。但是，Node 模块和 ES6 模块中，`this`返回的是当前模块。
+* 函数里面的`this`，如果函数不是作为对象的方法运行，而是单纯作为函数运行，`this`会指向顶层对象。但是，严格模式下，这时`this`会返回`undefined`。
+* 不管是严格模式，还是普通模式，`new Function('return this')()`，总是会返回全局对象。但是，如果浏览器用了CSP（Content Security Policy，内容安全政策），那么`eval`、`new Function`这些方法都可能无法使用。
 
 综上所述，很难找到一种方法，可以在所有情况下，都取到顶层对象。下面是两种勉强可以使用的方法。
 
