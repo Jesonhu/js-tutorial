@@ -267,8 +267,9 @@ function func(arg) {
    for计数变量避免外露  
    避免声明被提前
 
-3. [块级作用域与函数声明](#块级作用域与函数声明)
+3. [块级作用域与函数声明](#块级作用域与函数声明)  
    ES6为了考虑兼容又要实现标准，建议在块级作用域内使用函数表达式
+
 4. [do表达式](#do-表达式)
    还是提案？
 
@@ -430,6 +431,14 @@ function f() { console.log('I am outside!'); }
   }
   f();
 }());
+
+var str = 'i am out str!';
+(function() {
+    if (false) {
+        var str = 'i am in str!' 
+    }
+    console.log(str); // => es5浏览器中str为undefined
+})();
 ```
 
 ES6 就完全不一样了，理论上会得到“I am outside!”。因为块级作用域内声明的函数类似于`let`，对作用域之外没有影响。但是，如果你真的在 ES6 浏览器中运行一下上面的代码，是会报错的，这是为什么呢？
