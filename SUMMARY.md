@@ -42,7 +42,7 @@
 ## part4 现代JS
 
 * [版权说明](/docs/modern-js/README.md)
-
+* [ECMAScript 6简介](docs/modern-js/intro.md)
 * [ES6类](part4-xian-dai-js/es6lei.md)
   * [基本语法](docs/modern-js/class.md)
   * [继承](docs/modern-js/class-extends.md)
@@ -51,6 +51,4 @@
   * [严格模式](docs/ch6/2.md)
   * [模块命令](docs/ch6/3.md)
   * [模块整体加载](docs/ch6/4.md)
-
-
 

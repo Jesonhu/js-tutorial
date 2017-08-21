@@ -1,6 +1,15 @@
 # ECMAScript 6简介
 
-ECMAScript 6.0（以下简称 ES6）是 JavaScript 语言的下一代标准，已经在2015年6月正式发布了。它的目标，是使得 JavaScript 语言可以用来编写复杂的大型应用程序，成为企业级开发语言。
+### 知识点
+
+1. [ECMAScript 和 JavaScript 的关系](#ecmascript-和-javascript-的关系)
+2. [ES6与ECMAScript2015的关系](#es6-与-ecmascript-2015-的关系)
+
+——————————————————————————————————————————————————————————————————————————
+
+**ECMAScript 6.0**（以下简称 ES6）是 JavaScript 语言的下一代标准，已经在**2015年6月**正式发布了。它的目标，是使得 JavaScript 语言可以用来编写复杂的大型应用程序，成为企业级开发语言。
+
+---
 
 ## ECMAScript 和 JavaScript 的关系
 
@@ -10,7 +19,11 @@ ECMAScript 6.0（以下简称 ES6）是 JavaScript 语言的下一代标准，�
 
 该标准从一开始就是针对 JavaScript 语言制定的，但是之所以不叫 JavaScript，有两个原因。一是商标，Java 是 Sun 公司的商标，根据授权协议，只有 Netscape 公司可以合法地使用 JavaScript 这个名字，且 JavaScript 本身也已经被 Netscape 公司注册为商标。二是想体现这门语言的制定者是 ECMA，不是 Netscape，这样有利于保证这门语言的开放性和中立性。
 
-因此，ECMAScript 和 JavaScript 的关系是，前者是后者的规格，后者是前者的一种实现（另外的 ECMAScript 方言还有 Jscript 和 ActionScript）。日常场合，这两个词是可以互换的。
+因此，**ECMAScript 和 JavaScript 的关系是**，
+
+**ECMAScript**是**JavaScript**的规格，**JavaScript**是**ECMAScript**的一种实现（另外的 ECMAScript 方言还有 Jscript 和 ActionScript）。日常场合，这两个词是可以互换的。[BackTop](#知识点)
+
+---
 
 ## ES6 与 ECMAScript 2015 的关系
 
@@ -22,7 +35,7 @@ ECMAScript 2015（简称 ES2015）这个词，也是经常可以看到的。它�
 
 但是，标准的制定者不想这样做。他们想让标准的升级成为常规流程：任何人在任何时候，都可以向标准委员会提交新语法的提案，然后标准委员会每个月开一次会，评估这些提案是否可以接受，需要哪些改进。如果经过多次会议以后，一个提案足够成熟了，就可以正式进入标准了。这就是说，标准的版本升级成为了一个不断滚动的流程，每个月都会有变动。
 
-标准委员会最终决定，标准在每年的6月份正式发布一次，作为当年的正式版本。接下来的时间，就在这个版本的基础上做改动，直到下一年的6月份，草案就自然变成了新一年的版本。这样一来，就不需要以前的版本号了，只要用年份标记就可以了。
+标准委员会最终决定，标准在**每年的6月份正式发布一次**，作为当年的正式版本。接下来的时间，就在这个版本的基础上做改动，直到下一年的6月份，草案就自然变成了新一年的版本。这样一来，就不需要以前的版本号了，只要用年份标记就可以了。
 
 ES6 的第一个版本，就这样在2015年6月发布了，正式名称就是《ECMAScript 2015标准》（简称 ES2015）。2016年6月，小幅修订的《ECMAScript 2016标准》（简称 ES2016）如期发布，这个版本可以看作是 ES6.1 版，因为两者的差异非常小（只新增了数组实例的`includes`方法和指数运算符），基本上是同一个标准。根据计划，2017年6月发布 ES2017 标准。
 
@@ -34,15 +47,17 @@ ES6 的第一个版本，就这样在2015年6月发布了，正式名称就是�
 
 一种新的语法从提案到变成正式标准，需要经历五个阶段。每个阶段的变动都需要由 TC39 委员会批准。
 
-- Stage 0 - Strawman（展示阶段）
-- Stage 1 - Proposal（征求意见阶段）
-- Stage 2 - Draft（草案阶段）
-- Stage 3 - Candidate（候选人阶段）
-- Stage 4 - Finished（定案阶段）
+* Stage 0 - Strawman（展示阶段）
+* Stage 1 - Proposal（征求意见阶段）
+* Stage 2 - Draft（草案阶段）
+* Stage 3 - Candidate（候选人阶段）
+* Stage 4 - Finished（定案阶段）
 
-一个提案只要能进入 Stage 2，就差不多肯定会包括在以后的正式标准里面。ECMAScript 当前的所有提案，可以在 TC39 的官方网站[Github.com/tc39/ecma262](https://github.com/tc39/ecma262)查看。
+**一个提案只要能进入 Stage 2，就差不多肯定会包括在以后的正式标准里面。**ECMAScript 当前的所有提案，可以在 TC39 的官方网站[Github.com/tc39/ecma262](https://github.com/tc39/ecma262)查看。
 
-本书的写作目标之一，是跟踪 ECMAScript 语言的最新进展，介绍5.1版本以后所有的新语法。对于那些明确或很有希望，将要列入标准的新语法，都将予以介绍。
+本书的写作目标之一，是跟踪 ECMAScript 语言的最新进展，介绍5.1版本以后所有的新语法。对于那些明确或很有希望，将要列入标准的新语法，都将予以介绍。[BackTop](#知识点)
+
+---
 
 ## ECMAScript 的历史
 
@@ -586,4 +601,6 @@ fs.writeFileSync('out.js', result.js);
 // sourceMap 属性对应 map 文件
 fs.writeFileSync('out.js.map', result.sourceMap);
 ```
+
+
 
